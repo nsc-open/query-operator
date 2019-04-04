@@ -10,6 +10,8 @@ eq (equal), ne (not equal), gt (great than), gte (great than equal), lt (less th
 import queryOperator from 'query-operator'
 
 // /api/resources?f1=xxx&f2=contains|substring&f3=ne|xxx&f4=gt
+const queries = queryOperator.parse('f1=xxx&f2=contains|substring&f3=ne|xxx&f4=gt')
+
 const queries = {
   f1: {
     operator: 'eq',
@@ -58,4 +60,28 @@ const myRunner = queryOperator.defineRunner({
   in: (field, ...operants) => `${field} in (${operants.join(',')})`
   //...
 })
+```
+
+### stringify
+
+```js
+const queries = {
+  f1: {
+    operator: 'eq',
+    operants: ['xxx']
+  },
+  f2: {
+    operator: 'contains',
+    operants: ['substring']
+  },
+  f3: {
+    operator: 'ne',
+    operants: ['xxx']
+  },
+  f4: {
+    operator: 'gt',
+  }
+
+}
+queryOperator.stringify(queries) // f1=xxx&f2=contains|substring&f3=ne|xxx&f4=gt|
 ```
