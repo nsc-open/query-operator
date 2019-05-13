@@ -2,6 +2,8 @@
 
 avoid '%' in url
 
+support two formats: json and pipe
+
 ## operators
 
 eq (equal), ne (not equal), gt (great than), gte (great than equal), lt (less than), lte (less than equal), ct (contains), stw (startsWith), edw (endsWith), in, nin (not in), bt (between)
